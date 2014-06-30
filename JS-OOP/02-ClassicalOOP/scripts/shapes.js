@@ -1,11 +1,10 @@
 var canvasPainter = (function () {
+    'use strict';
+
     var Shape = (function () {
         function Shape(x, y) {
-            var startX,
-                startY;
-
-            this.startX = x;
-            this.startY = y;
+            this._startX = x;
+            this._startY = y;
         }
 
         return Shape;
@@ -13,40 +12,39 @@ var canvasPainter = (function () {
 
     var Rect = (function () {
         function Rect(x, y, width, height) {
-            var width,
-                height;
-
             Shape.call(this, x, y);
-            this.width = width;
-            this.height = height;
+            this._width = width;
+            this._height = height;
         }
+
+        Rect.prototype = new Shape();
 
         Rect.prototype.draw = function (context) {
             var ctx = context;
             ctx.beginPath();
-            ctx.moveTo(this.startX, this.startY);
-            ctx.lineTo(this.startX + this.width, this.startY);
-            ctx.lineTo(this.startX + this.width, this.startY + this.height);
-            ctx.lineTo(this.startX, this.startY + this.height);
+            ctx.moveTo(this._startX, this._startY);
+            ctx.lineTo(this._startX + this._width, this._startY);
+            ctx.lineTo(this._startX + this._width, this._startY + this._height);
+            ctx.lineTo(this._startX, this._startY + this._height);
             ctx.closePath();
             ctx.stroke();
-        }
+        };
 
         return Rect;
     }());
 
     var Circle = (function () {
         function Circle(x, y, radius) {
-            var radius;
-
             Shape.call(this, x, y);
-            this.radius = radius;
+            this._radius = radius;
         }
+
+        Circle.prototype = new Shape();
 
         Circle.prototype.draw = function (context) {
             var ctx = context;
             ctx.beginPath();
-            ctx.arc(this.startX, this.startY, this.radius, 0, Math.PI * 2);
+            ctx.arc(this._startX, this._startY, this._radius, 0, Math.PI * 2);
             ctx.stroke();
         };
 
@@ -55,19 +53,18 @@ var canvasPainter = (function () {
 
     var Line = (function () {
         function Line(x1, y1, x2, y2) {
-            var endX,
-                endY;
-
             Shape.call(this, x1, y1);
-            this.endX = x2;
-            this.endY = y2;
-        };
+            this._endX = x2;
+            this._endY = y2;
+        }
+
+        Line.prototype = new Shape();
 
         Line.prototype.draw = function (context) {
             var ctx = context;
             ctx.beginPath();
-            ctx.moveTo(this.startX, this.startY);
-            ctx.lineTo(this.endX, this.endY);
+            ctx.moveTo(this._startX, this._startY);
+            ctx.lineTo(this._endX, this._endY);
             ctx.stroke();
         };
 
@@ -78,7 +75,7 @@ var canvasPainter = (function () {
         Rect: Rect,
         Circle: Circle,
         Line: Line
-    }
+    };
 }());
 
 var canvas = $('#canvas')[0],
