@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Sheep and Rams game</title>
+    <script src="bower_components/requirejs/require.js" data-main="scripts/app"></script>
+    <style>
+        #scores-container {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<h3>Welcome to the Sheep and Rams game</h3>
+
+<p>Try to guess the number, which the computer has chosen.</p>
+<input type="text" id="tb-input"/>
+<button id="btn-checkInput">Guess</button>
+<button id="btn-showScores">Show/hide high scores</button>
+<div id="results-container"></div>
+<div id="scores-container"><h3>Scores:</h3></div>
+</body>
+</html>

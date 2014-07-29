@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="styles/styles.css"/>
+    <script src="scripts/twitterFetcher.js"></script>
+</head>
+<body>
+<h1>Refresh a few times if you don't see anything. It happens sometimes.</h1>
+
+<div id="twitter-container"></div>
+<script>
+    var twitterData = (function () {
+        twitterFetcher.fetch('493847534884749315', 'twitter-container', 100, true, true, true);
+    }());
+</script>
+</body>
+</html>

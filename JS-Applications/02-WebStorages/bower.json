@@ -1,0 +1,19 @@
+{
+  "name": "02-WebStorages",
+  "version": "0.0.1",
+  "homepage": "https://github.com/RadoChervenkov/Telerik-Academy",
+  "authors": [
+    "Radoslav Chervenkov <chervenkovr@gmail.com>"
+  ],
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -1,0 +1,1 @@
+This is some example data, loaded from external file (scripts/data.txt) :)
